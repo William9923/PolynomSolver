@@ -12,6 +12,7 @@ class Polinom {
 public:
     Polinom(int);
     Polinom(const Polinom&);
+    ~Polinom();
     void generateRandom(int);
     int panjangPolinom() const;
     int getKoefAt(int) const;
@@ -41,6 +42,10 @@ Polinom::Polinom(const Polinom& p){
 	for(int i = 0; i < p.n+1;i++){
 		this->koef[i] = p.koef[i];
 	}
+}
+
+Polinom::~Polinom(){
+	delete[] this->koef;
 }
 
 void Polinom::generateRandom(int n){
